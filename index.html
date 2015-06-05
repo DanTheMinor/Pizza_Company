@@ -1,0 +1,81 @@
+<!-- <!Doctype html> -->
+<html>
+  <head>
+    <script src= "js/jquery-1.11.3.js"></script>
+    <script src= "js/scripts.js"></script>
+    <link rel= "stylesheet" href= "css/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+
+    <title>The Pizza Company</title>
+  </head>
+  <body>
+    <div class= "container">
+
+        <h1>Place Your Pizza Orders Here!</h1>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="show-pizzas">
+            <h3>Pizzas</h3>
+            <ul class="pizza-list">
+            </ul>
+            <h4 id="total-cost"></h4>
+            <br>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!-- blank -->
+        </div>
+        <div class="col-md-4">
+          <div class="show-details">
+            <h3>test</h3>
+            <ul class="display-details">
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!--START OF THE FORM-->
+      <div class="row">
+        <form id="pizza">
+          <label for="input-size">What size would you like your pizza?</label>
+          <select id="input-size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <br>
+          <label for="input-cheese">What kind of cheese would you like on your pizza?</label>
+          <select id="input-cheese">
+            <option value="normal">Normal</option>
+            <option value="none">None</option>
+            <option value="extra">Extra</option>
+          </select>
+          <br>
+          <label for="input-sauce">What kind of sauce would you like on your pizza?</label>
+          <select id="input-sauce">
+            <option value="normal">Normal</option>
+            <option value="none">None</option>
+            <option value="extra">Extra</option>
+          </select>
+          <br>
+          <div id="topping">
+            <div class="new-topping">
+              <label for="input-topping">What is a topping you would like on your pizza?</label>
+              <input type="text" class="input-topping form-control" style= "width:300">
+              <br>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">Add Pizza to Order</button>
+          <span class="btn btn-info add-topping">Add More Toppings</span>
+          </select>
+        </form>
+      </div>
+      <!--END OF THE FORM-->
+    </div>
+  </body>
+</html>

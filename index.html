@@ -13,30 +13,6 @@
 
         <h1>Place Your Pizza Orders Here!</h1>
 
-      <div class="row">
-        <div class="col-md-4">
-          <div class="show-pizzas">
-            <h3>Pizzas</h3>
-            <ul class="pizza-list">
-            </ul>
-            <h4 id="total-cost"></h4>
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <!-- blank -->
-        </div>
-        <div class="col-md-4">
-          <div class="show-details">
-            <h3>test</h3>
-            <ul class="display-details">
-
-            </ul>
-
-          </div>
-        </div>
-      </div>
 
 
       <!--START OF THE FORM-->
@@ -65,9 +41,10 @@
           <br>
           <div id="topping">
             <div class="new-topping">
-              <label for="input-topping">What is a topping you would like on your pizza?</label>
-              <input type="text" class="input-topping form-control" style= "width:300">
-              <br>
+              <div class="form-group">
+                <label for="input-topping">What is a topping you would like on your pizza?</label>
+                <input type="text" id="input-topping" class="input-topping form-control" style= "width:300">
+              </div>
             </div>
           </div>
           <button type="submit" class="btn btn-success">Add Pizza to Order</button>
@@ -76,6 +53,30 @@
         </form>
       </div>
       <!--END OF THE FORM-->
+      <div class="row alert-info">
+          <div class="col-xs-6">
+            <div class="show-pizzas">
+              <h3>Pizzas</h3>
+              <ul class="pizza-list">
+              </ul>
+              <h4 id="total-cost"></h4>
+              <br>
+            </div>
+        </div>
+        <!---test-->
+          <div class="col-xs-2">
+            <h1>     </h1>
+          </div>
+        <!---test-->
+          <div class="col-xs-4">
+            <div class="show-details">
+              <h3></h3>
+              <h4 id="size-details"></h4>
+              <h4 id="cheese-details"></h4>
+              <h4 id="sauce-details"></h4>
+            </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -3,6 +3,7 @@
 }
 
 .show-pizzas li{
+  cursor: pointer;
   color: #0088cc;
 }
 .show-pizzas li:hover{
@@ -11,4 +12,25 @@
 
 .show-details {
     display: none;
+}
+
+.show-details h4{
+  color: grey;
+}
+
+.alert-info {
+  display: none;
+}
+
+
+.show-pizzas {
+  list-style-type: none;
+}
+
+.show-details {
+  margin: 10px;
+  padding: 5px;
+  float: right;
+  background-color: white;
+  border-radius: 10px;
 }

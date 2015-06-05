@@ -24,23 +24,34 @@ function clearFields() {
   $("#input-size").val("small");
   $("#input-cheese").val("normal");
   $("#input-sauce").val("normal");
-  $("#topping").replaceWith(  '<div class="new-topping">' +
+  // $("#topping").replaceWith(  '<div class="new-topping">' +
+  //                                   '<label for="input-topping">What is a topping you would like on your pizza?</label>' +
+  //                                   '<input type="text" class="input-topping form-control" style= "width:300">' +
+  //                                   '<br>' +
+  //                                 '</div>');
+
+  $("#topping").replaceWith('<div id="topping">' +
+                                '<div class="new-topping">' +
+                                  '<div class="form-group"> ' +
                                     '<label for="input-topping">What is a topping you would like on your pizza?</label>' +
-                                    '<input type="text" class="input-topping form-control" style= "width:300">' +
-                                    '<br>' +
-                                  '</div>');
+                                    '<input type="text" id="input-topping" class="input-topping form-control" style= "width:300">' +
+                                  '</div>' +
+                                '</div>' +
+                              '</div>');
 }
 
 $(function() {
     $(".add-topping").click(function() {
-      $("#topping").append( '<div class="new-topping">' +
-                                  '<input type="text" class="input-topping form-control" style= "width:300">' +
-                                  '<br>' +
-                                '</div>');
+      $("#topping").append('<div class="new-topping">' +
+                                '<div class="form-group"> ' +
+                                  '<input type="text" id="input-topping" class="input-topping form-control" style= "width:300">' +
+                                '</div>' +
+                              '</div>');
     });
 
     var totalCost = 0;
     $("form#pizza").submit(function(event) {
+      //form input retrieval
       event.preventDefault();
       inputtedSize = $("#input-size").val();
       inputtedCheese = $("#input-cheese").val();
@@ -51,21 +62,32 @@ $(function() {
       $(".new-topping").each(function() {
         var inputtedTopping = $(this).find("input").val();
         newPizza.toppings.push(inputtedTopping);
-      })
+      });
+      var isCheese = ""
+      if (newPizza.toppings[0] === ""){isCheese = "Cheese";}
+      clearFields();
       //end of form input retrieval
+
+      //Pizza list
       var toppingsList = newPizza.toppings.join(", ");
       totalCost += newPizza.getPrice();
-      $("ul.pizza-list").append("<li>" + "<span class=pizzas>" + toppingsList  + " pizza. $" + newPizza.getPrice() + "</span>" + "</li>");
-      $("#total-cost").replaceWith("Total Cost: " + totalCost);
+      $("ul.pizza-list").append("<li>" + "<span class=pizza>" + isCheese + toppingsList  + " pizza. $" + newPizza.getPrice() + "</span>" + "</li>");
+      $("#total-cost").text("Total Cost: " + totalCost);
+      //end of pizza list
 
+      //Pizza details
       $(".pizza").last().click(function() {
-        $("display-details").show();
+        $(".show-details").show();
         var toppingsList = newPizza.toppings.join(", ");
-        $(".show-details h3").text(toppingsList + " pizza details")
-
+        var isCheese = ""
+        if (newPizza.toppings[0] === ""){isCheese = "Cheese";}
+        $(".show-details h3").text(toppingsList + isCheese + " pizza details");
+        $("#size-details").text("size: " + newPizza.size);
+        $("#cheese-details").text("cheese: " + newPizza.cheese);
+        $("#sauce-details").text("sauce: " + newPizza.sauce);
       })
-      clearFields();
+      //end of pizza details
       $(".show-pizzas").show();
-      //debugger
-    })
-})
+      $(".alert-info").show();
+    });
+});
